@@ -66,7 +66,7 @@ func (c *caller) callFunc(h *Channel, args interface{}) []reflect.Value {
 		args = c.getArgs()
 	}
 
-	a := []reflect.Value{reflect.ValueOf(h), reflect.ValueOf(args).Elem()}
+	a := []reflect.Value{reflect.ValueOf(h), reflect.ValueOf(args)}
 	if !c.ArgsPresent {
 		a = a[0:1]
 	}
