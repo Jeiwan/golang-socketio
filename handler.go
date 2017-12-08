@@ -98,13 +98,7 @@ func (m *methods) processIncomingMessage(c *Channel, msg *protocol.Message) {
 			return
 		}
 
-		data := f.getArgs()
-		err := json.Unmarshal([]byte(msg.Args), &data)
-		if err != nil {
-			return
-		}
-
-		f.callFunc(c, data)
+		f.callFunc(c, msg.Args)
 
 	case protocol.MessageTypeAckRequest:
 		f, ok := m.findMethod(msg.Method)
